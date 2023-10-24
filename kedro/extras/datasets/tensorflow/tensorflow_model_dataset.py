@@ -139,7 +139,7 @@ class TensorFlowModelDataset(AbstractVersionedDataset[tf.keras.Model, tf.keras.M
                 )  # noqa: redefined-loop-name
                 self._fs.copy(load_path, path)
             else:
-                self._fs.get(load_path, path, recursive=True)
+                self._fs.get(load_path+'/', path, recursive=True)
 
             # Pass the local temporary directory/file path to keras.load_model
             device_name = self._load_args.pop("tf_device", None)
